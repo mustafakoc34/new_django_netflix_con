@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+      <!-- Hero image -->
+      <div class="hero-image">
+          <div class="hero-text">
+            <span>Merhaba </span>{{profil.name}}
+            <h1>Sınırsız film, dizi ve çok daha fazlası.</h1>
+            <h4>İstediğiniz yerde izleyin. İstediğiniz zaman iptal edin.</h4>
+            <p>İzlemeye hazır mısınız? Üyelik oluşturmak veya üyeliğinze erişmek için e-posta adresinizi girin</p>
+
+            <button class="btn btn-secondary btn-lg mt-3">Oynat</button>
+            <button class="btn btn-secondary btn-lg mt-3">Daha Fazla Bilgi</button>
+        </div>
+
+      </div>
+
+      <div class="container">
+          <div class="row mt-5">
+
+            <h3 class="text-light">Netflix'te Popüler</h3>
+            <h4 class="text-light text-uppercase">{{ vid_category.title }}</h4>
+
+            
+
+            
+            {% for i in videos  %}
+                <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img width="200px" height="100px" src="{{ i.image.url }}" class="w-100" alt="">
+                </a>
+                <span class="text-light">{{ i.title }}</span>
+                
+                    <div class="dropdown-center">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Seçenekler
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'likeIndex' profil.id i.id %}">Beğen</a></li>
+                          <li><a class="dropdown-item" href="#">Puan Ver</a></li>
+                        </ul>
+                    </div>
+                
+            </div>
+            {% endfor %}
+
+            
+            {% for t in videos_filter  %}
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{{ t.image.url }}" class="w-100" alt="">
+                </a>
+                <span class="text-light">Ad: {{ t.title }}</span>
+                <span class="text-light">Kategori: {{ t.category }}</span>
+                <div class="dropdown-center">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Seçenekler
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Beğen</a></li>
+                      <li><a class="dropdown-item" href="#">Puan Ver</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+                
+                
+
+          </div>
+
+          <div class="row mt-5">
+              <h3 class="text-light"> Gündemdekiler</h3>
+
+              <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{% static 'img/film1.jpg' %}" class="w-100" alt="">
+                </a>
+            </div>
+
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{% static 'img/film2.jpg' %}" class="w-100" alt="">
+                </a>
+            </div>
+
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{% static 'img/film3.jpg' %}" class="w-100" alt="">
+                </a>
+            </div>
+
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{% static 'img/film4.webp' %}" class="w-100" alt="">
+                </a>
+            </div>
+
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{% static 'img/film1.jpg' %}" class="w-100" alt="">
+                </a>
+            </div>
+
+            <div class="col-md-2 col-4 mt-1">
+                <a href="video.html">
+                    <img src="{% static 'img/film1.jpg' %}" class="w-100" alt="">
+                </a>
+            </div>
+          </div>
+      </div>
+
+
+{% endblock body %}
+
