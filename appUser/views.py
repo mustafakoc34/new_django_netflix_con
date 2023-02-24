@@ -21,6 +21,11 @@ def loginUser(request):
 
     return render(request, 'users/login.html', context)
 
+def logoutUser(request):
+
+    logout(request)
+    return redirect('index')
+
 def registerUser(request):
     context ={}
 

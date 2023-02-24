@@ -28,6 +28,7 @@ urlpatterns = [
     path('like/<pid>/<vid>/', likeIndex, name = "likeIndex"),
     #Users
     path('login/', loginUser, name="loginUser"),
+    path('logout/', logoutUser, name="logoutUser"),
     path('register/',registerUser, name="registerUser"),
     path('account/', AccountUser, name="AccountUser"),
     path('profil/', profilUser, name="profilUser"),
